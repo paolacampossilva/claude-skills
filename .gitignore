@@ -23,6 +23,9 @@ venv/
 *.docx
 *.pptx
 
+# Example images used in the READMEs (synthetic data only)
+!docs/*.png
+
 # Editor and system files
 .DS_Store
 .idea/

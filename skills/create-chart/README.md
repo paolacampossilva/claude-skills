@@ -14,6 +14,10 @@ Fazer à mão um gráfico por turma, todo bimestre, para o simulado ou as notas 
 
 O script lê a planilha e encontra cada bloco de turma pelo cabeçalho "ÁREAS DO CONHECIMENTO", depois desenha um gráfico de barras por turma: área do conhecimento contra média, do maior para o menor. Cada barra usa a cor de fundo da célula da disciplina na planilha. Os arquivos PNG e um .zip com eles são gravados na pasta de saída.
 
+![Gráfico de exemplo gerado com dados sintéticos](../../docs/example-chart.png)
+
+O gráfico acima foi gerado a partir de uma planilha sintética, com turmas e notas inventadas.
+
 ## Entrada esperada
 
 Um arquivo `.xlsx`, `.xlsm` ou `.numbers` em que cada turma é um bloco: o nome da turma numa célula, o cabeçalho "ÁREAS DO CONHECIMENTO" logo abaixo e uma linha por disciplina com a média. Os blocos são achados por esse cabeçalho, e não por posições fixas, então podem estar empilhados ou lado a lado em qualquer aba. Veja o `SKILL.md` para o layout exato.
@@ -67,6 +71,10 @@ Making one chart per class by hand, every bimester, for a school's simulado (moc
 ## How it works
 
 The script reads the spreadsheet and finds each turma block by its "ÁREAS DO CONHECIMENTO" header, then draws one bar chart per turma: knowledge area against average, sorted from highest to lowest. Each bar takes the background color of its subject's cell in the spreadsheet. The PNG files and a .zip of them are written to the output folder.
+
+![Example chart generated from synthetic data](../../docs/example-chart.png)
+
+The chart above was generated from a synthetic spreadsheet with made-up classes and grades.
 
 ## Expected input
 
