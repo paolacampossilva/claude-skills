@@ -1,0 +1,295 @@
+@page {
+  size: A4;
+  margin: 20mm 18mm 22mm 18mm;
+  @bottom-center {
+    /* TODO: replace with the document's own footer label */
+    content: "Document Title — Subtitle";
+    font-family: "Inter";
+    font-size: 8pt;
+    color: #9a9488;
+    letter-spacing: 0.02em;
+  }
+  @bottom-right {
+    content: counter(page);
+    font-family: "Inter";
+    font-size: 8pt;
+    color: #9a9488;
+  }
+}
+
+@page cover {
+  margin: 0;
+  @bottom-center { content: none; }
+  @bottom-right { content: none; }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Inter", sans-serif;
+  color: #262220;
+  font-size: 10.3pt;
+  line-height: 1.5;
+  background: #FBF9F4;
+}
+
+/* ---------- COVER PAGE ---------- */
+.cover {
+  page: cover;
+  height: 297mm;
+  width: 100%;
+  background: linear-gradient(160deg, #FBF9F4 0%, #FBF9F4 58%, #f1ece1 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30mm 24mm;
+}
+
+.cover .eyebrow {
+  font-family: "Inter";
+  font-size: 11pt;
+  color: #7a746a;
+  margin-bottom: 6mm;
+}
+
+.cover h1 {
+  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+  font-size: 40pt;
+  line-height: 1.08;
+  margin: 0 0 8mm 0;
+  color: #211d1a;
+}
+
+.cover .subtitle {
+  font-size: 12.5pt;
+  color: #4c463e;
+  max-width: 120mm;
+  margin-bottom: 16mm;
+}
+
+.cover .toc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2mm 10mm;
+}
+
+.cover .toc-item {
+  display: flex;
+  align-items: baseline;
+  gap: 3mm;
+  font-size: 10pt;
+  color: #3a352f;
+}
+
+.cover .toc-num {
+  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+  font-size: 11pt;
+  width: 8mm;
+  flex-shrink: 0;
+  color: var(--c);
+}
+
+.cover .toc-rule {
+  position: absolute;
+  left: 12mm;
+  top: 30mm;
+  width: 2mm;
+  height: 227mm;
+  /* TODO: replace with a linear-gradient through your generated palette,
+     in the same order as the topics (see scripts/palette.py) */
+  background: var(--rule-gradient, linear-gradient(180deg, #A83B32, #A62E68));
+  border-radius: 2mm;
+}
+
+/* ---------- SECTIONS ---------- */
+section.topic { margin-top: 12mm; }
+section.topic:first-of-type { margin-top: 0; }
+
+.topic-head {
+  display: table;
+  width: 100%;
+  border-bottom: 0.9mm solid var(--c);
+  padding-bottom: 3.5mm;
+  margin-bottom: 6mm;
+  break-after: avoid-page;
+  break-inside: avoid-page;
+  margin-top: 4mm;
+}
+.topic-head .topic-num-cell,
+.topic-head h1 {
+  display: table-cell;
+  vertical-align: middle;
+}
+.topic-head .topic-num-cell { width: 14mm; padding-right: 5mm; }
+
+h2.sub, h3.sub3 {
+  break-after: avoid-page;
+}
+
+.callout, .steps, ol.two-col {
+  break-inside: avoid-page;
+}
+
+/* Tables: don't force the whole table to stay together (a table taller
+   than one page would otherwise get pushed whole to the next page,
+   stranding a near-empty page behind it). Instead let it break between
+   rows, never mid-row, and repeat the header row on the new page. */
+table { break-inside: auto; }
+thead { display: table-header-group; }
+tr { break-inside: avoid-page; }
+
+.topic-num {
+  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+  font-size: 22pt;
+  color: #fff;
+  background: var(--c);
+  width: 14mm;
+  height: 14mm;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.topic-head h1 {
+  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+  font-size: 18pt;
+  color: #211d1a;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.topic-head .kicker {
+  display: block;
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.04em;
+  color: var(--c);
+  margin-bottom: 1mm;
+}
+
+h2.sub {
+  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+  font-size: 12.5pt;
+  color: var(--c);
+  margin: 7mm 0 3mm 0;
+  padding-bottom: 1mm;
+  border-bottom: 0.35mm solid #e7e0d3;
+}
+
+h3.sub3 {
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 10.3pt;
+  color: #3a352f;
+  margin: 5mm 0 2mm 0;
+}
+
+p { margin: 0 0 3mm 0; }
+
+ul, ol {
+  margin: 0 0 3mm 0;
+  padding-left: 5mm;
+}
+li { margin-bottom: 1.3mm; }
+li::marker { color: var(--c); font-weight: 700; }
+
+strong { color: #211d1a; font-weight: 700; }
+
+.callout {
+  background: var(--tint);
+  border-left: 1mm solid var(--c);
+  border-radius: 1mm;
+  padding: 3mm 4.5mm;
+  margin: 3.5mm 0;
+}
+.callout .label {
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 8.3pt;
+  letter-spacing: 0.03em;
+  color: var(--c);
+  text-transform: uppercase;
+  margin-bottom: 1.3mm;
+  display: block;
+}
+
+.chip-row { display: flex; flex-wrap: wrap; gap: 2mm; margin: 2mm 0 4mm 0; }
+.chip {
+  background: var(--c);
+  color: #fff;
+  font-size: 8pt;
+  font-weight: 600;
+  padding: 1.3mm 3mm;
+  border-radius: 20mm;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 3mm 0 4mm 0;
+  font-size: 9.3pt;
+}
+th {
+  background: var(--c);
+  color: #fff;
+  font-weight: 600;
+  text-align: left;
+  padding: 2.2mm 3mm;
+}
+td {
+  padding: 2.2mm 3mm;
+  border-bottom: 0.25mm solid #e7e0d3;
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: var(--tint2); }
+
+.two-col {
+  columns: 2;
+  column-gap: 8mm;
+}
+.two-col li { break-inside: avoid; }
+
+.steps {
+  counter-reset: step;
+  list-style: none;
+  padding-left: 0;
+  margin: 3mm 0;
+}
+.steps > li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 9mm;
+  margin-bottom: 3mm;
+}
+.steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0; top: 0;
+  width: 6.5mm; height: 6.5mm;
+  background: var(--c);
+  color: #fff;
+  border-radius: 50%;
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 9pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.steps > li strong { color: var(--c); }
+
+.closing {
+  margin-top: 6mm;
+  font-size: 9pt;
+  color: #7a746a;
+  font-style: italic;
+}

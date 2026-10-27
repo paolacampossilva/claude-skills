@@ -1,3 +1,55 @@
+<details open>
+<summary><b>🇧🇷 pt-br</b> — synch-bilingual-readmes</summary>
+<br>
+
+# synch-bilingual-readmes
+
+Skill do Claude que confere se todo `README.md` de um projeto tem versão completa e sincronizada em português e inglês, e corrige o que faltar.
+
+## Por quê
+
+Manter um README em português e seu espelho em inglês em dia exige ler os dois lados de cada README e comparar seções, comandos e variáveis à mão. Esta skill faz a comparação e escreve o texto em inglês que faltar.
+
+## Como funciona
+
+1. Encontra todo `README.md` do caminho informado, ignorando `.venv*`, `venv`, `node_modules`, `site-packages`, `.pytest_cache`, `.git` e `__pycache__`.
+2. Marca os READMEs sem bloco em inglês (sem o marcador 🇺🇸), sem lê-los por inteiro.
+3. Nos demais, confere se os dois blocos têm as mesmas seções, na mesma ordem, e as mesmas entidades concretas (comandos, variáveis de ambiente, endpoints, números), seguindo `references/deteccao-e-sincronia.md`.
+4. Corrige direto, sem etapa de confirmação. O português é a fonte da verdade: cria o espelho completo em inglês quando falta, ou edita só o bloco em inglês quando os dois divergiram.
+5. Relata cada README como já sincronizado, espelho criado ou sincronizado, com uma nota curta do que mudou.
+
+O formato esperado são dois blocos `<details>` recolhíveis, um com o resumo `🇧🇷 pt-br` e outro com `🇺🇸 en`.
+
+Ela não inventa conteúdo e não altera o texto em português. Se um README estiver errado em português, apenas relata.
+
+## Entrada esperada
+
+O caminho de um projeto. Se não for informado, a skill pergunta em vez de adivinhar.
+
+## Rodando os scripts diretamente
+
+Não há scripts. A skill é um `SKILL.md` mais um arquivo de referência, compartilhado com `synch-bilingual-docs`.
+
+## Usando como skill do Claude
+
+Copie esta pasta para `~/.claude/skills/` (ou para `.claude/skills/` de um projeto), ou envie como skill personalizada. Depois peça ao Claude para checar ou sincronizar os READMEs bilíngues de um projeto. O arquivo da skill não a restringe a ser chamada pelo nome.
+
+Se você também usa `synch-bilingual-docs`, mantenha as duas pastas lado a lado, porque aquela skill lê o arquivo de referência desta.
+
+As instruções dentro do `SKILL.md` estão em português.
+
+## Stack
+
+Arquivos Markdown de skill. Em execução usa as ferramentas `Read`, `Grep`, `Glob`, `Bash`, `Write`, `Edit` e `Agent` do Claude Code, e os comandos de shell `find` e `grep`.
+
+</details>
+
+---
+
+<details>
+<summary><b>🇺🇸 en</b> — synch-bilingual-readmes</summary>
+<br>
+
 # synch-bilingual-readmes
 
 A Claude skill that checks every `README.md` in a project for a complete, synchronized Portuguese and English version, and fixes what is missing.
@@ -37,3 +89,5 @@ The instructions inside `SKILL.md` are written in Portuguese.
 ## Stack
 
 Markdown skill files. At run time it uses Claude Code's `Read`, `Grep`, `Glob`, `Bash`, `Write`, `Edit` and `Agent` tools, and the shell commands `find` and `grep`.
+
+</details>

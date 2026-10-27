@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- Example of the formula-card pattern. Build it with:
+       cp assets/style.css assets/math.css .
+       python3 scripts/mathify.py assets/formula-example.html out.html
+       python3 -c "from weasyprint import HTML; HTML('out.html', base_url='.').write_pdf('out.pdf')"
+     The legend column headers ("Term / What it is / What it is for") and all text
+     must be written in the language of the document. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Formula card example</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="math.css">
+</head>
+<body>
+
+<section class="topic" style="--c:#2E9E53; --tint:#F0F8F3; --tint2:#F7FBF8;">
+  <div class="topic-head">
+    <div class="topic-num-cell"><div class="topic-num">1</div></div>
+    <h1><span class="kicker">Formula sheet</span>Formula cards</h1>
+  </div>
+
+  <div class="callout">
+    <span class="label">How to read each card</span>
+    Name of the formula, the formula, the <strong>context</strong> (when and why it is used) and a
+    <strong>legend</strong> saying what each term is and what it is for.
+  </div>
+
+  <!-- A block heading in another accent color: set --c on the h2 (and on its cards) -->
+  <h2 class="sub">Block 1 · Sigmoid and logistic regression</h2>
+
+  <!-- CARD: title, one or more .fc-eq rows, context, legend -->
+  <div class="fcard">
+    <div class="fc-title">Sigmoid function and its properties</div>
+
+    <!-- Each $$...$$ becomes one image; several in the same .fc-eq sit side by side and wrap.
+         Keep each one under ~430pt wide; mathify.py warns when one is too wide. -->
+    <div class="fc-eq">$$\sigma(z)=\frac{1}{1+e^{-z}}$$ $$\sigma(0)=0{,}5$$ $$\sigma(-z)=1-\sigma(z)$$ $$\sigma'(z)=\sigma(z)\,\bigl(1-\sigma(z)\bigr)$$</div>
+
+    <p class="fc-ctx"><strong>Context:</strong> maps any real number z to a value between 0 and 1,
+      like an on/off switch. The derivative is written with the function itself, which
+      simplifies the chain rule.</p>
+
+    <!-- LEGEND: symbols are inline math ($...$), so they match the formulas above -->
+    <table class="fc-legend">
+      <thead><tr><th>Term</th><th>What it is</th><th>What it is for</th></tr></thead>
+      <tbody>
+        <tr><td>$z$</td><td>Input of the function (linear score, $z=wx+b$).</td><td>The farther from the decision line, the larger $|z|$.</td></tr>
+        <tr><td>$e$</td><td>Euler's number (about 2.718).</td><td>Base of the exponential that bends the curve into an S.</td></tr>
+        <tr><td>$\sigma'(z)$</td><td>Derivative of the sigmoid (max 0.25).</td><td>Appears in the chain rule of the gradient.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CARD with a multi-line derivation, braces and a piecewise definition (needs the LaTeX engine) -->
+  <div class="fcard">
+    <div class="fc-title">Chain rule for the weight</div>
+    <div class="fc-eq">$$\frac{\partial L}{\partial w}=\underbrace{-2(y-\hat{y})}_{\text{error}}\;\cdot\;\underbrace{\hat{y}(1-\hat{y})}_{\sigma'(z)}\;\cdot\;\underbrace{x}_{\text{input}}$$</div>
+    <div class="fc-eq">$$\text{class}=\begin{cases}1,&\hat{y}\ge 0{,}5\\[2pt]0,&\hat{y}<0{,}5\end{cases}$$ $$w\leftarrow w-\eta\,\frac{\partial L}{\partial w}$$</div>
+    <p class="fc-ctx"><strong>Context:</strong> the loss reaches w through three steps (w → z → ŷ → L), so the derivative is the
+      product of the derivative of each step.</p>
+  </div>
+
+  <!-- CARD with a process flow instead of a formula -->
+  <div class="fcard">
+    <div class="fc-title">Pipeline</div>
+    <div class="fc-flow">
+      <span class="fl">Question</span><span class="ar">→</span>
+      <span class="fl">Retriever</span><span class="ar">→</span>
+      <span class="fl">Documents</span><span class="ar">→</span>
+      <span class="fl">LLM</span><span class="ar">→</span>
+      <span class="fl">Answer</span>
+      <div class="fnote">Retriever = lexical + dense search → fusion → top-k</div>
+    </div>
+  </div>
+
+  <!-- ONE-PAGE CHEAT SHEET: only formulas, two columns, for copying by hand -->
+  <h2 class="sub" style="break-before: page;">One-page cheat sheet</h2>
+  <div class="cola">
+    <div class="ci"><div class="ct">Sigmoid</div>$$\sigma(z)=\frac{1}{1+e^{-z}}\qquad\sigma'(z)=\sigma(z)(1-\sigma(z))$$</div>
+    <div class="ci"><div class="ct">Update</div>$$\theta_j\leftarrow\theta_j-\alpha\,\frac{\partial L}{\partial\theta_j}$$</div>
+    <div class="ci"><div class="ct">Cosine</div>$$\cos(u,v)=\frac{u\cdot v}{\lVert u\rVert\,\lVert v\rVert}$$</div>
+    <!-- words with accents go OUTSIDE the TeX, as plain text: -->
+    <div class="ci"><div class="ct">Metric</div><div class="cn">MRR@k = mean of 1/rank of the first relevant item</div></div>
+  </div>
+</section>
+
+</body>
+</html>
