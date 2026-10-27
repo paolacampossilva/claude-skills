@@ -18,6 +18,10 @@ O script lê uma planilha do simulado e uma planilha bimestral e grava um .zip c
 - `bimestral/`: o mesmo para a planilha bimestral.
 - `comparativo/`: um gráfico de barras agrupadas por turma presente nas duas planilhas, comparando a média do simulado com a média bimestral de cada disciplina, na ordem de disciplinas da planilha do simulado.
 
+![Gráfico comparativo de exemplo gerado com dados sintéticos](../../docs/example-comparison-chart.png)
+
+O gráfico acima é um `comparativo/` gerado a partir de planilhas sintéticas, com turmas e notas inventadas.
+
 O script não detecta qual arquivo é qual: ele confia nos caminhos passados a `--simulado` e `--bimestral`.
 
 ## Entrada esperada
@@ -78,6 +82,10 @@ The script reads a simulado spreadsheet and a bimonthly spreadsheet and writes o
 - `simulado/`: one bar chart per turma, sorted from highest to lowest, as in `create-chart`.
 - `bimestral/`: the same for the bimonthly spreadsheet.
 - `comparativo/`: one grouped bar chart per turma present in both spreadsheets, comparing each subject's simulado average with its bimonthly average, in the simulado spreadsheet's subject order.
+
+![Example comparison chart generated from synthetic data](../../docs/example-comparison-chart.png)
+
+The chart above is a `comparativo/` chart generated from synthetic spreadsheets with made-up classes and grades.
 
 The script does not detect which file is which; it trusts the paths given to `--simulado` and `--bimestral`.
 
