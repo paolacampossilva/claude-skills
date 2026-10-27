@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.venv-*/
+.pytest_cache/
+.ruff_cache/
+
+# Environment and secrets
+.env
+.env.*
+
+# Files the skills read or write, so real data is never committed by accident
+*.xlsx
+*.xls
+*.csv
+*.zip
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.docx
+*.pptx
+
+# Editor and system files
+.DS_Store
+.idea/
+.vscode/
