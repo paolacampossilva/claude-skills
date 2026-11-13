@@ -18,7 +18,7 @@ Para uma reunião de sprint ou para decidir o que fazer com um processo novo, é
 
 ## Entrada esperada
 
-Modo, fonte (projeto, pasta, task ou texto), no retrospectivo a parte de quem e o escopo da fala, e a pasta de destino. O que faltar, a skill pergunta, nunca infere. Só roda quando chamada pelo nome.
+Modo, fonte (projeto, pasta, task ou texto), no retrospectivo a parte de quem e o escopo da fala, e o destino (a pasta e se o documento é só pessoal ou compartilhado com o time). O texto sai sempre em terceira pessoa, exceto o roteiro de fala. O que faltar, a skill pergunta, nunca infere. Só roda quando chamada pelo nome.
 
 ## Rodando os scripts diretamente
 
@@ -56,7 +56,7 @@ For a sprint meeting or to decide what to do with a newly arrived process, you n
 
 ## Expected input
 
-Mode, source (project, folder, task or text), in retrospective whose part it is and the speaking scope, and the destination folder. Anything missing is asked, never inferred. It only runs when called by name.
+Mode, source (project, folder, task or text), in retrospective whose part it is and the speaking scope, and the destination (the folder, and whether the document is private or shared with the team). The text is always written in third person, except the speaking script. Anything missing is asked, never inferred. It only runs when called by name.
 
 ## Running the scripts directly
 

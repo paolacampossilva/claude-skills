@@ -1,6 +1,6 @@
 ---
 name: create-main-readme
-description: Creates or fixes a project's main/root README.md, following the section skeleton of a rich reference README (Sumário, Tecnologias, Pré-requisitos, Instalação, Executando, Estrutura de pastas, one detailed section per module/service, Variáveis de ambiente, Testes, Tipos de commit, full PT-BR/EN bilingual mirror) while adapting each section's content to whatever the target project actually is (LangGraph, Streamlit, FastAPI, JS frontend, etc. — never inventing what doesn't exist). Use when the user asks to create, write, fix, update, or review the main/root README.md of a project, module, or squad folder.
+description: Creates or fixes a project's main/root README.md, following the section skeleton of a rich reference README (Sumário, Tecnologias, Pré-requisitos, Instalação, Executando, Estrutura de pastas, one detailed section per module/service, Variáveis de ambiente, Testes, Tipos de commit, full PT-BR/EN bilingual mirror) while adapting each section's content to whatever the target project actually is (LangGraph, Streamlit, FastAPI, JS frontend, etc. — never inventing what doesn't exist). Use when the user asks to create, write, fix, update, or review the main/root README.md of a project, module, or team folder.
 when_to_use: Not for per-service READMEs inside a project — that's a narrower task; only repeat per folder if explicitly asked.
 allowed-tools: Read, Grep, Glob, Bash, Write, Edit, Agent, AskUserQuestion
 argument-hint: "[caminho do projeto]"

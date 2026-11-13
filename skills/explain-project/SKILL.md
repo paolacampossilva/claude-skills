@@ -1,7 +1,7 @@
 ---
 name: explain-project
 description: >-
-  Writes a didactic .md explanation for the user in two layers, plain language first and technical terms in an advanced section, and saves it in a folder the user names. Two modes: "retrospective" (explains what the user did in a project, plus an overview of the whole project and its progress, for sprint meetings where they may speak for the whole team) and "new process" (explains what a newly arrived process is, so the user can decide what to do). Only use when the user explicitly invokes it by name (e.g. "usa a explain-project"), not just because they ask a question about a project. If the mode, source, speaking scope or output folder is missing, ask, never infer.
+  Writes a didactic .md explanation for the user in two layers, plain language first and technical terms in an advanced section, and saves it in a folder the user names (private or shared with the team), always written in third person. Two modes: "retrospective" (explains what the user did in a project, plus an overview of the whole project and its progress, for sprint meetings where they may speak for the whole team) and "new process" (explains what a newly arrived process is, so the user can decide what to do). Only use when the user explicitly invokes it by name (e.g. "usa a explain-project"), not just because they ask a question about a project. If the mode, source, speaking scope or output folder is missing, ask, never infer.
 ---
 
 # Explain Project
@@ -27,11 +27,13 @@ dependia do input.
 2. **Retrospectivo**:
    - qual projeto ou pasta;
    - de quem é a parte (a pessoa, a task ou o período);
-   - **escopo da fala**: só a minha parte, pelo time todo, ou as duas.
+   - **escopo da fala**: só a parte da pessoa, pelo time todo, ou as duas.
 3. **Processo novo**: a fonte do processo (caminho de task, PDF ou issue, ou
    texto colado).
-4. **Pasta de destino** do `.md`. Só o nome do arquivo é sugerido pela skill,
-   em `snake_case`, sem perguntar. Se a pasta não existir, criar.
+4. **Destino** do `.md` (nos dois modos): a pasta, e se o documento é só para
+   o usuário ou compartilhado com o time. Se não for informado, perguntar,
+   nunca inferir. Só o nome do arquivo é sugerido pela skill, em `snake_case`,
+   sem perguntar. Se a pasta não existir, criar.
 
 ## Passos
 
@@ -39,9 +41,10 @@ dependia do input.
    Explore em paralelo (código, documentação, `git log`). Autoria vem do
    `git log` e dos relatórios, nunca de suposição.
 2. **Escrever o `.md`** com o modelo do modo escolhido (abaixo).
-3. **Gravar** na pasta de destino e avisar o caminho completo em uma ou duas
-   linhas, mais os pontos que o usuário deve conferir antes de falar. Não colar o documento
-   no chat.
+3. **Gravar** no destino escolhido e avisar o caminho completo em uma ou duas
+   linhas, mais os pontos que o usuário deve conferir antes de falar. Não colar
+   o documento no chat. Se o destino estiver num repositório git, entregar
+   também os comandos de commit seguindo as regras do projeto, sem rodá-los.
 
 ## Regras de escrita
 
@@ -49,9 +52,12 @@ dependia do input.
 - Camada simples primeiro: frase curta, analogia, nenhum termo técnico sem
   tradução ao lado. Termo técnico só na seção avançada.
 - Emojis nos títulos de seção, tabelas e citações em bloco para destacar.
-- Primeira pessoa é permitida quando o arquivo é pessoal. Se a pasta de destino
-  for compartilhada com o time, escrever em terceira pessoa e neutro sobre os
-  colegas.
+- **Sempre terceira pessoa**, em qualquer destino: "a pessoa fez", nunca "eu
+  fiz". O roteiro de fala é a única exceção, porque é texto para ser dito em
+  voz alta por quem vai apresentar (primeira pessoa do plural, "nós", para o
+  time, ou neutro).
+- Destino compartilhado com o time: o arquivo é lido por todos, então também
+  fica neutro sobre os colegas e sinaliza o que for só para a coordenação.
 - Números só com fonte e conferência. Dado de ferramenta ou git que não foi
   rodado é dito como tal (ex.: "contagem de funções, não rodei o pytest").
 - Divergência entre fontes (ex.: commits do serviço x do repositório inteiro)
@@ -68,12 +74,12 @@ Seções, nesta ordem:
 2. **O projeto em palavras simples**: problema, solução, regra de ouro, onde
    o usuário entra, uma analogia, e a tabela de tasks com responsável.
 3. **Visão geral do projeto inteiro e andamento** (ver abaixo).
-4. **O que eu fiz, em ordem**, em fases.
+4. **O que a pessoa fez, em ordem**, em fases.
 5. **Números para citar**, cada um com a fonte.
 6. **Roteiro de fala** de 1 minuto sobre a parte do usuário.
 7. **O que falta**: código, o que depende do usuário sem código, o que está
    bloqueado e o que levar ao scrum master.
-8. **O que não é meu**: tabela por pessoa.
+8. **O que não é da pessoa**: tabela por colega.
 9. **Seção avançada: termos técnicos**.
 
 ### Seção "Visão geral do projeto inteiro e andamento"
@@ -94,7 +100,7 @@ Existe para as sprints em que o usuário fala por todos. Conteúdo:
 
 Escopo da fala:
 
-- **só a minha parte**: a visão geral fica curta, só como contexto;
+- **só a parte da pessoa**: a visão geral fica curta, só como contexto;
 - **pelo time todo**: a visão geral vira o centro do documento e a parte
   individual encolhe;
 - **as duas**: peso igual.

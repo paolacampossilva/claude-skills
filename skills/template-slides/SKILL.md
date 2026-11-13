@@ -41,7 +41,7 @@ script next to the target folder doesn't hold them), ask with
 user's name.** Once given, reuse them for the later decks of the same
 session without asking again.
 
-- **Team label**, e.g. "Squad 2" (called `<team label>` below)
+- **Team label**, e.g. "Team A" (called `<team label>` below)
 - **Members**, one name per line
 - **Advisors** ("Orientação"), as written on the closing slide
 - **Sprint number**, which changes every deck

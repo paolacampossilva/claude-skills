@@ -10,7 +10,7 @@ Tente sempre nesta ordem:
 
 ## 1. Título + descrição de uma frase
 
-Nome do projeto/squad + o que ele faz, em uma frase densa (tecnologias-chave em
+Nome do projeto/time + o que ele faz, em uma frase densa (tecnologias-chave em
 negrito, sem enrolação).
 
 ## 2. `**Integrantes:**`

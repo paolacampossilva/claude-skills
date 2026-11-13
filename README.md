@@ -12,7 +12,7 @@ Coleção de skills pessoais do Claude para trabalhar com código e documentaç�
 - [check-skills](skills/check-skills): lista as skills que você escreveu e mostra quais delegam trabalho a outra.
 - [create-main-readme](skills/create-main-readme): cria ou corrige o `README.md` principal de um projeto num esqueleto fixo, bilíngue, adaptando o conteúdo ao que o projeto tem e mostrando um plano antes de escrever.
 - [explain-project](skills/explain-project): escreve um `.md` didático em duas camadas (sem jargão e avançada), no modo retrospectivo ou de processo novo.
-- [review-teammate-prs](skills/review-teammate-prs): acha os PRs de colegas sem a sua aprovação, abertos ou mergeados, revisa com um checklist e entrega rascunhos de comentário e os comandos `gh pr review`, sem postar nada.
+- [review-teammate-prs](skills/review-teammate-prs): acha os PRs de colegas sem a sua aprovação, abertos ou mergeados, revisa com um checklist, confere label, assignee e reviewers, e entrega rascunhos de comentário e os comandos `gh pr review` e `gh pr edit`, sem postar nada.
 - [sprint-slides](skills/sprint-slides): planeja o conteúdo de uma apresentação de fim de sprint para um público não técnico e, aprovado o roteiro, passa para a `template-slides`.
 - [suggest-commits](skills/suggest-commits): sugere commits agrupados por tipo e escopo para o que está pendente num repositório, sem executar nada.
 - [template-slides](skills/template-slides): gera o deck `.pptx` numa identidade visual fixa, a partir de conteúdo pronto.
@@ -52,7 +52,7 @@ A collection of personal Claude skills for working on code and documentation, pl
 - [check-skills](skills/check-skills): lists the skills you wrote yourself and shows which ones hand off to another.
 - [create-main-readme](skills/create-main-readme): creates or fixes a project's main `README.md` in a fixed, bilingual skeleton, adapting the content to what the project has and showing a plan before writing.
 - [explain-project](skills/explain-project): writes a didactic `.md` in two layers (plain and advanced), in retrospective or new-process mode.
-- [review-teammate-prs](skills/review-teammate-prs): finds teammates' PRs without your approval, open or merged, reviews them with a checklist and delivers draft comments and the `gh pr review` commands, without posting anything.
+- [review-teammate-prs](skills/review-teammate-prs): finds teammates' PRs without your approval, open or merged, reviews them with a checklist, checks label, assignee and reviewers, and delivers draft comments and the `gh pr review` and `gh pr edit` commands, without posting anything.
 - [sprint-slides](skills/sprint-slides): plans the content of an end-of-sprint presentation for a non-technical audience and, once the outline is approved, hands off to `template-slides`.
 - [suggest-commits](skills/suggest-commits): suggests commits grouped by type and scope for what is pending in a repository, without running anything.
 - [template-slides](skills/template-slides): generates the `.pptx` deck in a fixed visual identity from finished content.
